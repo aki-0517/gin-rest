@@ -1,13 +1,13 @@
 version: "3"
 services: 
   app:
-    container_name: go-test
+    container_name: gin-rest
     build:
       context: .
       dockerfile: ./infla/Dockerfile
     tty: true
     volumes:
-      - .:/gin-mysql
+      - .:/gin-rest
     env_file:
       - ./.env
     ports:
@@ -17,13 +17,14 @@ services:
         condition: service_healthy  
 
   mysql:
+    container_name: mysql-2
     image: mysql:8.0.28
     platform: linux/amd64
     ports:
       - 3306:3306
     environment:
       - MYSQL_ROOT_PASSWORD=password
-      - MYSQL_DATABASE=result
+      - MYSQL_DATABASE=gin-rest
       - MYSQL_USER=docker
       - MYSQL_PASSWORD=password
       - TZ=Asia/Tokyo

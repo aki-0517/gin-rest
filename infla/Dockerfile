@@ -1,7 +1,7 @@
 # とりあえずgolangのバージョンは最新を使用
 FROM --platform=linux/x86_64 golang:1.19.3-alpine
 # アップデートとgitのインストール
-WORKDIR /gin-mysql
+WORKDIR /gin-rest
 RUN apk update && \
     apk add --update --no-cache git && \
     apk add --no-cache gcc && \

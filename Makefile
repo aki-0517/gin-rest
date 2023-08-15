@@ -19,6 +19,6 @@ format: tools
 
 .PHONY: migrate
 migrate:
-  docker compose -f docker-compose.yml run --rm app sh -c 'migrate -path mysql/migrations -database "mysql://docker:password@tcp(mysql:3306)/result?multiStatements=true" up'
+  docker compose -f docker-compose.yml run --rm app sh -c 'migrate -path mysql/migrations -database "mysql://docker:password@tcp(mysql:3306)/gin-rest?multiStatements=true" up'
 
 
